@@ -1,0 +1,101 @@
+.bg-image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/bg.png");
+  background-size: 100% 100%;
+}
+
+.bg-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 15, 32, 0.4);
+}
+
+.btn {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  border-radius: 20px;
+  border: none;
+  flex-shrink: 0;
+  background: none;
+  color: white;
+  font-size: 22px;
+  &::before {
+    content: "+";
+    line-height: 43px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.btn_blue {
+  background: rgba(56, 119, 238, 0.7);
+  &:hover {
+    background-color: rgba(56, 119, 238, 1);
+  }
+}
+
+.btn_green {
+  background: rgba(106, 191, 75, 0.7);
+  &:hover {
+    background-color: rgba(106, 191, 75, 1);
+  }
+}
+
+.btn.opened {
+  &.btn_blue {
+    background-color: rgba(56, 119, 238, 1);
+  }
+  &.btn_green {
+    background-color: rgba(106, 191, 75, 1);
+  }
+  &::before {
+    content: "-";
+    line-height: 40px;
+  }
+}
+
+.btn-text {
+  display: none;
+  height: 41px;
+  line-height: 41px;
+  user-select: none;
+  width: fit-content;
+  box-sizing: border-box;
+  padding-right: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn.opened .btn-text {
+  position: absolute;
+  left: 41px;
+  top: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+.btn.opened {
+  & > .btn-text {
+    display: flex;
+    min-width: 100%;
+  }
+  &.btn_blue {
+    border-radius: 20px 0 0 20px;
+    & > .btn-text {
+      background-color: rgba(56, 119, 238, 1);
+    }
+  }
+  &.btn_green {
+    border-radius: 20px 0 0 20px;
+    & > .btn-text {
+      background-color: rgba(106, 191, 75, 1);
+    }
+  }
+}
